@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block title %}Order Now{% endblock title %}
+ {% block content %}
+
+ <div class="container-fluid px-0 mb-3">
+    <img src="/static/shopping.jfif" class="d-block w-100" alt="" style="width: 10f00px; height: 400px; margin: 0px;">
+ </div>
+ <div class="container py-4">
+    <h1 class="text-center">Order now</h1>
+    <form method="post" action="/order_now/{{cart_product.product_name}}">
+     {% csrf_token %}
+        <div class="mb-3">
+            <label for="name" class="form-label">Your Name</label>
+            <input type="text" class="form-control" id="name" name="name" placeholder="Enter Your Name">
+        </div>
+        <div class="mb-3">
+            <label for="phone" class="form-label">Phone Number</label>
+            <input type="number" class="form-control" id="phone" name="phone" placeholder="Enter Your phone Number">
+        </div>
+        <div class="mb-3">
+            <label for="address" class="form-label">Address</label>
+            <textarea type="text" class="form-control" id="address" name="address" placeholder="Enter Your Address"></textarea>
+        </div>
+        <div class="mb-3">
+            <label for="pin" class="form-label">PIN Number</label>
+            <input type="number" class="form-control" id="pin" name="pin" placeholder="Enter Your PIN Number">
+        </div>
+
+        <a type="submit" href="/place_order/{{cart_product.product_name}}" class="btn btn-outline-danger">Place Order</button>
+        <!-- <a class="nav-link" href="/place_order/{{cart_product.product_name}}">Place Order</a> -->
+        
+{% endblock content %}

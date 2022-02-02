@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block title %} products{% endblock title %}
+{% block content %}
+<div class="container py-4">
+    <h1 class="text-center">Add a product </h1>
+    <form method="post" action="/add_a_product" enctype="multipart/form-data">
+     {% csrf_token %}
+       <div class="mb-3">
+            <label for="name" class="form-label">Product Name</label>
+            <input type="text" class="form-control" id="name" name="name" placeholder="Enter the product Name">
+        </div> 
+          <div class="mb-3">
+            <label for="desc" class="form-label">Product Description</label>
+            <input type="text" class="form-control" id="desc" name="desc" placeholder="Enter the product Description">
+        </div> 
+        <div class="mb-3">
+          <label for="price" class="form-label">Product price</label>
+          <input type="text" class="form-control" id="price" name="price" placeholder="Enter the product price">
+      </div> 
+          <div class="mb-3">
+            <label for="file" class="form-label">Product Image</label>
+            <input type="file" class="form-control" id="file" name="file" placeholder="Enter the product Image">
+        </div> 
+         <div class="mb-3">
+            <label for="file2" class="form-label">Product 2nd Image</label>
+            <input type="file" class="form-control" id="file2" name="file2" placeholder="Enter the 2nd product Image">
+        </div> 
+         <div class="mb-3">
+            <label for="file3" class="form-label">product 3rd Image</label>
+            <input type="file" class="form-control" id="file3" name="file3" placeholder="Enter the 3rd product Image">
+        </div> 
+        <button type="submit" class="btn btn-dark">Add</button>
+    </form>
+</div>
+{% endblock content %}

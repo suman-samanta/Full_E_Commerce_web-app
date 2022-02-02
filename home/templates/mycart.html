@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block title %}My cart{% endblock title %}
+{% block content %}
+{% for cart_product_name in cart_product_all %}
+ <table class="table">
+    <thead>
+        <tr>
+            <th scope="col">product_name</th>
+            <th scope="col">product_price</th>
+            <th scope="col">product img</th>
+            <th scope="col">Quantity</th>
+
+
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+
+            <td>{{cart_product_name.product_name}}</td>
+            <td>{{cart_product_name.product_price}}</td>
+            <td ><img src="{{cart_product_name.product_img.url}}" alt="" border=3 height=100 width=100></img>
+            </td>
+            <td>{{cart_product_name.quantity}}</td>
+            <td> <a href="/remove_cart/{{cart_product_name.product_name}}"  type="button" class="btn btn-sm  btn-outline-dark"> Remove From cart </a> </td>
+            <td> <a href="/order_now/{{cart_product_name.product_name}}"  type="button" class="btn btn-sm  btn-outline-danger"> +Buy Now </a> </td>
+        </tr>
+    </tbody>
+  </table>
+   
+
+  <!-- <div>{{cart_product_all.total_price}}</div> -->
+{% endfor %}
+{% endblock content %}

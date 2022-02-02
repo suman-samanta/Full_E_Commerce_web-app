@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% block title %}view{% endblock title %}
+
+{% block content %}
+
+<div class="container">
+  
+    
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+     {% comment %} {% for product in productall %} {% endcomment %}
+     
+        <div class="col">
+            <div class="card shadow-sm img-fluid">
+                <img src="{{product.product_img.url}}" class="d-block w-100" alt="...">
+                
+                <div class="card-body">
+                    <p class="card-text">{{product.product_name}}</p>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card shadow-sm img-fluid">
+                <img src="{{product.product_img2.url}}" class="d-block w-100" alt="...">
+                
+                <div class="card-body">
+                    <p class="card-text">{{product.product_desc}}</p>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card shadow-sm img-fluid">
+                <img src="{{product.product_img3.url}}" class="d-block w-100" alt="...">
+                
+                <div class="card-body">
+                    <p class="card-text">New Fashion wears</p>
+                </div>
+            </div>
+        </div>
+        <a href="/add_to_cart/{{product.product_name}}" type="button" class="btn btn-sm  btn-outline-danger"> +Add To cart</a>
+        {% comment %} {% endfor %} {% endcomment %}
+    </div>
+
+
+        {% endblock content %}
